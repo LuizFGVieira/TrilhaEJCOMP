@@ -1,12 +1,20 @@
 import React from 'react';
-import LoginCard from './components/Login/Card';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import LoginCard from './components/Card';
 import { GlobalStyle } from './styles';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 function App() {
+
   return (
     <>
       <GlobalStyle />
-      <LoginCard />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<LoginCard />} />
+          {/* <Route path='signup' element={<SignupCard />} /> */}
+        </Routes>
+      </BrowserRouter >
     </>
   );
 }
