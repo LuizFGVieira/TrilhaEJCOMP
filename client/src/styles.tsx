@@ -40,11 +40,13 @@ export const Card = styled.div`
         justify-content: center;
     }
 
-    @media (max-width: 350px) {
+    @media (max-width: 400px) {
         width: 100vw;
         height: 100vh;
         left: 0;
         top: 0;
+        border-radius: 0;
+        box-shadow: none;
     }
 `;
 
@@ -55,6 +57,8 @@ export const CardTransitor = styled.div<Props>`
     height: 86vh;
     width: 40vw;
     z-index: 2;
+    background: rgb(0,128,255);
+    background: linear-gradient(267deg, rgba(0,128,255,1) 0%, rgba(0,91,181,1) 100%);
     background-color: var(--primary-color);
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -103,10 +107,22 @@ export const Login = styled.div<Props>`
     order: 2;
     flex-direction: column;
     justify-content: center;
+    gap: 1rem;
     align-items: center;
+
+    h6{
+        font-size: 13px;
+    }
+
+    h6 span{
+        color: var(--primary-color);
+        cursor: pointer;
+        font-weight: bolder;
+    }
 
     @media (max-width: 800px) {
         display: ${props => props.displayLogin};
+        width: 100%;
     }
 `;
 
@@ -118,6 +134,16 @@ export const Signup = styled.div<Props>`
     justify-content: center;
     align-items: center;
 
+    h6{
+        font-size: 13px;
+    }
+
+    h6 span{
+        color: var(--primary-color);
+        cursor: pointer;
+        font-weight: bolder;
+    }
+
     @media (max-width: 800px) {
         display: ${props => props.displaySignup};
     }
@@ -127,8 +153,12 @@ export const Form = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     padding: 1rem;
+
+    h1{
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
 
     input{
         border-radius: 10px;
@@ -140,11 +170,24 @@ export const Form = styled.form`
     }
 
     button{
+        cursor: pointer;
         width: 17rem;
         height: 3rem;
         border-radius: 10px;
         border: none;
         color: white;
-        background-color: var(--primary-color);
+        background: rgb(0,128,255);
+        background: linear-gradient(267deg, rgba(0,128,255,1) 0%, rgba(0,91,181,1) 100%);
     }
+
+    a{
+        text-decoration: none;
+        text-align: right;
+        font-weight: bold;
+        color: #9b9b9b;
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+
 `;
+

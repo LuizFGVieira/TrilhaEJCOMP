@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Form, Login } from "../../styles";
+import { Link } from "react-router-dom";
 
 type LoginFormProps = {
     TogglePage: () => void;
@@ -13,8 +14,11 @@ function LoginForm({ TogglePage, Display }: LoginFormProps) {
                 <h1>Login</h1>
                 <input type="email" placeholder="Email" />
                 <input type="password" placeholder="Password" />
-                <button type="button" onClick={() => TogglePage()}>Logar</button>
+
+                <Link to={""}>Esqueci minha senha</Link>
+                <button type="submit">Logar</button>
             </Form >
+            <h6>É novo por aqui? <span onClick={() => TogglePage()}>Cadastre-se</span></h6>
         </Login>
     );
 }
