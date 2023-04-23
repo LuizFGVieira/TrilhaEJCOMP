@@ -1,13 +1,13 @@
 import { prisma } from "../database/client"
 
-export const getUsers = async (request: any, response: any) => {
-    const result: object | null = await prisma.user.findUnique({
+export const authUsers = async (request: any, response: any) => {
+    const result: object | null = await prisma.user.findFirst({
         where: {
-            id: 3,
+            email: request.body.email,
+            password: request.body.password,
         },
         select: {
-            email: true,
-            name: true,
+            id: true,
         },
     })
     return response.status(200).json(result);

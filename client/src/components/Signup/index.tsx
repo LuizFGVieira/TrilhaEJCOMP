@@ -31,8 +31,7 @@ function SignupForm({ TogglePage, Display }: SignupFormProps) {
                 .then(({ data }) => toast.success(data))
             TogglePage();
         }
-
-
+        Promise.resolve();
     };
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
