@@ -30,6 +30,7 @@ function LoginForm({ TogglePage, Display }: LoginFormProps) {
         })
             .then(({ data }) => {
                 if (data !== null) {
+                    console.log(data);
                     toast.success("Logado com Sucesso");
                     setAuth({ data });
                     navigate("/home");
