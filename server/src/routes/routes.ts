@@ -7,6 +7,6 @@ const router = express.Router();
 router.post("/", addUsers);
 router.post("/login", authUsers);
 router.post("/tasks", addTask);
-router.get("/tasks", getTasks);
+router.get("/tasks:id", getTasks);
 
 export default router;

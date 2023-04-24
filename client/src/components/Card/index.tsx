@@ -4,6 +4,7 @@ import { Card, CardTransitor } from "../../styles";
 import SignupForm from "../Signup";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import logo from '../../assets/img/EJBRANCO.png'
 
 function LoginCard() {
     const [transition, setTransition] = useState("");
@@ -22,7 +23,7 @@ function LoginCard() {
     return (
         <>
             <CardTransitor transition={transition} >
-                <img src="../../assets/img/EJBRANCO.png" alt="" />
+                <img src={logo} alt="" id="logo1" />
             </CardTransitor>
             <Card>
                 <SignupForm TogglePage={togglePage} Display={pageAtiva === "Login" ? "none" : "flex"} />

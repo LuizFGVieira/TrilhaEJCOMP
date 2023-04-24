@@ -8,7 +8,8 @@ export const addTask = async (request: any, response: any) => {
                 deadline: request.body.deadLine,
                 description: request.body.description,
                 userId: request.body.userId,
-                isDone: false
+                isDone: false,
+                color: request.body.color
             },
         })
         return response.status(200).json("Cadastrado com Sucesso!");
@@ -18,12 +19,17 @@ export const addTask = async (request: any, response: any) => {
 }
 
 export const getTasks = async (request: any, response: any) => {
+    console.log(request.params.id);
     const tasks = await prisma.task.findMany({
+        where: {
+            userId: parseInt(request.params.id),
+        },
         select: {
             id: true,
             title: true,
             description: true,
-            deadline: true
+            deadline: true,
+            color: true
         }
     })
     return response.status(200).json(tasks);

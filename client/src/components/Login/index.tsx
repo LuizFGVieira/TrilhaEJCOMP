@@ -55,13 +55,15 @@ function LoginForm({ TogglePage, Display }: LoginFormProps) {
                     placeholder="Email"
                     name="email"
                     value={formValues.email}
-                    onChange={handleInputChange} />
+                    onChange={handleInputChange}
+                    required />
                 <input
                     type="password"
                     placeholder="Password"
                     name="password"
                     value={formValues.password}
-                    onChange={handleInputChange} />
+                    onChange={handleInputChange}
+                    required />
 
                 <Link to={""}>Esqueci minha senha</Link>
                 <button type="submit">Logar</button>

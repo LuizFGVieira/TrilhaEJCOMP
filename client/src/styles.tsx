@@ -4,6 +4,7 @@ interface Props {
     transition?: string;
     displayLogin?: string;
     displaySignup?: string;
+    taskColor?: string;
 }
 
 export const GlobalStyle = createGlobalStyle`
@@ -65,6 +66,19 @@ export const CardTransitor = styled.div<Props>`
     animation-name: ${props => props.transition};
     animation-duration: .8s;
     animation-fill-mode: forwards;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    #logo1{
+        width: 50%;
+        align-self: center;
+        vertical-align: middle;
+    }
+
+    #logo2{
+
+    }
 
     @media (max-width: 800px) {
         display: none;
@@ -226,13 +240,13 @@ export const TaskArea = styled.section`
     gap: 1rem;
 `;
 
-export const TaskToDo = styled.div`
+export const TaskToDo = styled.div<Props>`
     cursor: pointer;
     display: flex;
     width: 10rem;
     height: 10rem;
     box-shadow: 1px 1px 7px #b8b8b8;
-    background-color: #fabfb7;
+    background-color: ${props => props.taskColor || "#6bb7ff"};
 `;
 
 export const TaskInProgress = styled.div`
@@ -277,6 +291,9 @@ export const TaskDescription = styled.div`
 
 export const FilterBar = styled.nav`
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     top: 0;
     left: 0;
     width: 4rem;
@@ -284,6 +301,13 @@ export const FilterBar = styled.nav`
     background: rgb(0,128,255);
     background: linear-gradient(267deg, rgba(0,128,255,1) 0%, rgba(0,91,181,1) 100%);
     box-shadow: 2px 2px 15px #b8b8b8;
+
+    img{
+        cursor: pointer;
+        width: 2rem;
+        align-self: center;
+        margin-bottom: 1rem;
+    }
 `;
 
 export const FundoForm = styled.div`
@@ -329,7 +353,13 @@ export const TaskForm = styled.form`
         padding: 1rem 2rem;
         background-color: #f1f1f1;
         margin-bottom: 1rem;
-        width: 49%;
+        width: 40%;
+        height: 3rem;
+    }
+
+    #color{
+        width: 3rem;
+        padding: .5rem;
     }
 
     textarea{

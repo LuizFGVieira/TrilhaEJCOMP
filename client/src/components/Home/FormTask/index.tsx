@@ -16,6 +16,7 @@ function FormTask({ TogglePage, getTasks }: FormProps) {
         title: "",
         deadLine: "",
         description: "",
+        color: ""
     });
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -25,7 +26,8 @@ function FormTask({ TogglePage, getTasks }: FormProps) {
             title: formValues.title,
             deadLine: formValues.deadLine,
             description: formValues.description,
-            userId: auth.data.id
+            userId: auth.data.id,
+            color: formValues.color,
         })
             .then(({ data }) => toast.success(data))
             .catch(({ data }) => toast.error(data))
@@ -54,6 +56,7 @@ function FormTask({ TogglePage, getTasks }: FormProps) {
                 <div>
                     <input type="text" placeholder="Título" name="title" onChange={handleInputChange} />
                     <input type="date" name="deadLine" id="" onChange={handleInputChange} />
+                    <input type="color" name="color" onChange={handleInputChange} id="color" />
                 </div>
                 <textarea name="description" id="" cols={30} rows={10} placeholder="Descrição" onChange={handleTextAreaChange}></textarea>
                 <div>

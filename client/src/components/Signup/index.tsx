@@ -48,27 +48,27 @@ function SignupForm({ TogglePage, Display }: SignupFormProps) {
                     placeholder="Nome"
                     name="name"
                     value={formValues.name}
-                    onChange={handleInputChange}
+                    onChange={handleInputChange} required
                 />
                 <input
                     type="email"
                     placeholder="Email"
                     name="email"
                     value={formValues.email}
-                    onChange={handleInputChange}
+                    onChange={handleInputChange} required
                 />
                 <input
                     type="password"
                     placeholder="Senha"
                     name="password"
                     value={formValues.password}
-                    onChange={handleInputChange}
+                    onChange={handleInputChange} required
                 />
                 <input
                     type="password"
                     placeholder="Repita a senha"
                     name="confirmPassword"
-                    value={formValues.confirmPassword}
+                    value={formValues.confirmPassword} required
                     onChange={handleInputChange}
                 />
                 <button type="submit">Cadastrar-se</button>

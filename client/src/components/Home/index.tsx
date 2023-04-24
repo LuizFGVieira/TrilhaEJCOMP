@@ -13,7 +13,7 @@ function Home() {
     const [tasks, setTasks] = useState([]);
 
     async function getTasks() {
-        const result = await axios.get("http://localhost:8800/tasks");
+        const result = await axios.get("http://localhost:8800/tasks" + auth.data.id);
         setTasks(result.data);
     }
 
@@ -38,9 +38,8 @@ function Home() {
             <WorkSpace>
                 <TaskArea>
                     {tasks.map((task: any) => (
-                        <TaskToDo>
-
-                            <TaskDescription key={task.id}>
+                        <TaskToDo key={task.id} taskColor={task.color}>
+                            <TaskDescription>
                                 <h1>{task.title}</h1>
                                 <p>{task.description}</p>
                                 <h2>Entrega: {task.deadline}</h2>
@@ -49,25 +48,6 @@ function Home() {
                         </TaskToDo>
                     ))}
                 </TaskArea>
-
-                <TaskArea>
-                    <TaskInProgress>
-                        <TaskDescription>
-                            <h1>Título da Task</h1>
-                            <h2>23/04/2023</h2>
-                        </TaskDescription>
-                    </TaskInProgress>
-                </TaskArea>
-
-                <TaskArea>
-                    <TaskDone>
-                        <TaskDescription>
-                            <h1>Título da Task</h1>
-                            <h2>23/04/2023</h2>
-                        </TaskDescription>
-                    </TaskDone>
-                </TaskArea>
-
             </WorkSpace>
             <BtnTask onClick={handleClickBtn}>+ Nova Tarefa</BtnTask>
         </>
